@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "YTQuality",
+  "description": "Plug-in to force YT quality and collect statistics from 'stats for nerds'",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "My Test"
+  },
+
+  "permissions": [
+    "activeTab",
+    "http://localhost/*",
+    "https://www.youtube.com/*"
+  ]
+
+}
