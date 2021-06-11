@@ -7,7 +7,7 @@
 
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "My Test"
+    "default_title": "YT-Quality-Plugin"
   },
 
   "permissions": [
