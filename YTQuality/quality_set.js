@@ -97,28 +97,7 @@ function injection() {
 
     }
 
-    
-    
-    //     // function download_txt() { #include <IE.au3>
-
-
-    
-    //     //     var textToSave = speeds #include <IE.au3>
-
-
-
-    
-    //     //     var hiddenElement = document.createElement('a');
-
-    //     //     hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
-    //     //     hiddenElement.target = '_blank';
-    //     //     hiddenElement.download = 'myFile.txt';
-    //     //     hiddenElement.click();
-    //     //   }
-
-    //     //   document.getElementById('test').addEventListener('click', download_txt);
-
-    // }
+  
 
     //*#include <IE.au3>
 
