@@ -16,10 +16,9 @@ document.body.appendChild(script);
 
 //funkcja do wstrzyknięcia
 function injection() {
-    //var intercept = setInterval(setQuality, 10000, "large");
-    //setTimeout(capture, 300000);
     player = document.getElementById('movie_player');
     console.log(player);
+
     let speeds = new Array();
     //tablica przechowujaca wartości "Connection Speed" ze 'stats for nerds'
     let resolutions = new Array();
@@ -28,19 +27,47 @@ function injection() {
     let buffer = new Array();
     //tutaj można zdefiniować co ile mają być pobierane statystyki 
     stats_collect = setInterval(stats, 1000);
-    //tutaj definiowane jest po jakim czasie pobierane są zgromadzone statystyki
+
     
     ///////////////////////////////////////////////////////////////////////////////////
     //tutaj można zdefiniować własne ustawienia jakości, podając czas od początku testu
-    setTimeout(setQuality, 70000, "hd720");
-    setTimeout(setQuality, 100000, "small");
-    setTimeout(setQuality, 140000, "large");
-    setTimeout(pause, 150000, 10000);
-    setTimeout(capture, 200000);
-    function setQuality(quality){
+    setTimeout(setQuality, 10000, "small", player);
+    setTimeout(setQuality, 20000, "hd2880", player);
+    setTimeout(setQuality, 30000, "medium", player);
+    setTimeout(setQuality, 40000, "highres", player);
+    setTimeout(setQuality, 50000, "hd720", player);
+    // setTimeout(setQuality,60000, "hd2880");
+    // setTimeout(setQuality,70000, "hd1080");
+    setTimeout(setQuality,60000, "hd2160");
+    //setTimeout(setQuality,100000, "hd1440");
+    //setTimeout(setQuality,110000, "hd2160");
+    //setTimeout(setQuality,100000, "medium");
+    //setTimeout(setQuality,110000, "hd2160");
+    //setTimeout(setQuality,120000, "medium");
+    //setTimeout(setQuality,130000, "hd2880");
+    //setTimeout(setQuality,140000, "medium");
+    //setTimeout(setQuality, 10000,"tiny");
+    //setTimeout(setQuality, 20000, "small");
+    
+    //setTimeout(pause, 120000, 5000);
+    //setTimeout(capture, 130000);
+    
+      
+    
+
+   
+    function setQuality(quality, playit){
         //player = document.getElementById('movie_player');
         //console.log(player);
-        player.setPlaybackQualityRange(quality, quality);
+        //if (player.data == YT.PlayerState.PLAYING && !done) {
+        var timeit = player.getCurrentTime();
+
+        playit.setPlaybackQualityRange(quality, quality);
+        playit.currentTime = timeit + 0.75;
+        //player.seekTo(timeit);
+
+        //done=true;
+        
     }
     function pause(timeout){
         player.pauseVideo();
@@ -63,11 +90,11 @@ function injection() {
         buffer.push(buffers);
         currentTime = player.getCurrentTime();
         times.push(currentTime);
-        console.log(speeds);
-        console.log(times);
-        console.log(resolutions);
+        //console.log(speeds);
+        //console.log(times);
+        //console.log(resolutions);
 
-        console.log(buffers);
+        //console.log(buffers);
 
     }
 
@@ -78,7 +105,7 @@ function injection() {
         var blob3 = new Blob([resolutions], {type: 'application/octet-binary'});
         var blob4 = new Blob([buffer], {type: 'application/octet-binary'});
     
-        // pass a useful mime type here
+        
         var url = URL.createObjectURL(blob);
         var url2 = URL.createObjectURL(blob2);
         var url3 = URL.createObjectURL(blob3);
